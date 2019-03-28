@@ -174,7 +174,7 @@ resource "aws_instance" "test-tgw-instance1-dev" {
     Name     = "test-tgw-instance1-dev"
     scenario = "${var.scenario}"
     env      = "dev"
-    az       = "${var.az1}"
+    az       = "${data.aws_availability_zones.available.names[0]}"
     vpc      = "1"
   }
 }
@@ -191,7 +191,7 @@ resource "aws_instance" "test-tgw-instance2-dev" {
     Name     = "test-tgw-instance2-dev"
     scenario = "${var.scenario}"
     env      = "dev"
-    az       = "${var.az1}"
+    az       = "${data.aws_availability_zones.available.names[0]}"
     vpc      = "2"
   }
 }
@@ -209,7 +209,7 @@ resource "aws_instance" "test-tgw-instance3-shared" {
     Name     = "test-tgw-instance3-shared"
     scenario = "${var.scenario}"
     env      = "shared"
-    az       = "${var.az1}"
+    az       = "${data.aws_availability_zones.available.names[0]}"
     vpc      = "3"
   }
 }
@@ -226,7 +226,7 @@ resource "aws_instance" "test-tgw-instance4-prod" {
     Name     = "test-tgw-instance4-prod"
     scenario = "${var.scenario}"
     env      = "prod"
-    az       = "${var.az1}"
+    az       = "${data.aws_availability_zones.available.names[0]}"
     vpc      = "4"
   }
 }
