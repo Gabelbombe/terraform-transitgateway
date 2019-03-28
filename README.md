@@ -64,4 +64,4 @@ GPL 3.0 Licensed. See [LICENSE](https://github.com/ehime/terraform-transitgatewa
 
 | Name | Description |
 |------|-------------|
-| PUBLIC_IP |  |
+| public_ip |  |
