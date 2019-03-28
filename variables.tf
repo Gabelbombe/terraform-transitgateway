@@ -1,5 +1,5 @@
 variable "scenario" {
-  default = "test-tgw"
+  default = "tgw-mesh-scenario"
 }
 
 variable "public_key" {
