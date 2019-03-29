@@ -1,3 +1,8 @@
+## Presets to innumerate stuff I realluy don't want to look up..
+data "aws_caller_identity" "current" {}
+
+data "aws_availability_zones" "available" {}
+
 data "aws_ami" "ubuntu" {
   most_recent = true
 

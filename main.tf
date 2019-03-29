@@ -7,7 +7,7 @@ The Transit Gateway is meant to superseed the more complex and expensive Transit
 
 * ```hcl
 * module "gateway_mesh" {
-*   source      = "git@github.com:ehime/terraform-transitgateway?ref=v1.0.3"
+*   source      = "git@github.com:ehime/terraform-transitgateway?ref=v1.0.4"
 *   public_key  = "ssh-rsa AAAAB3NzaC1y...qd4hssndQ== rsa-key-20180518"
 *   scenario    = "tgw-mesh-scenario"
 * }
