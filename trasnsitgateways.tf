@@ -1,12 +1,12 @@
 ## Transit Gateway
-## Default association and propagation are disabled since our scenario involves
-## a more elaborated setup where
+## Default association and propagation are disabled since our scenario involves a more elaborated setup where
 ## - Dev VPCs can reach themselves and the Shared VPC
 ## - the Shared VPC can reach all VPCs
 ## - the Prod VPC can only reach the Shared VPC
 ## The default setup being a full mesh scenario where all VPCs can see every other
 resource "aws_ec2_transit_gateway" "test-tgw" {
-  description                     = "Transit Gateway testing scenario with 4 VPCs, 2 subnets each"
+  description = "Transit Gateway testing scenario with 4 VPCs, 2 subnets each"
+
   default_route_table_association = "disable"
   default_route_table_propagation = "disable"
 
@@ -18,9 +18,10 @@ resource "aws_ec2_transit_gateway" "test-tgw" {
 
 ## VPC attachment
 resource "aws_ec2_transit_gateway_vpc_attachment" "tgw-att-vpc-1" {
-  subnet_ids                                      = ["${aws_subnet.vpc-1-sub-a.id}", "${aws_subnet.vpc-1-sub-b.id}"]
-  transit_gateway_id                              = "${aws_ec2_transit_gateway.test-tgw.id}"
-  vpc_id                                          = "${aws_vpc.vpc-1.id}"
+  vpc_id             = "${aws_vpc.vpc-1.id}"
+  subnet_ids         = ["${aws_subnet.vpc-1-sub-a.id}", "${aws_subnet.vpc-1-sub-b.id}"]
+  transit_gateway_id = "${aws_ec2_transit_gateway.test-tgw.id}"
+
   transit_gateway_default_route_table_association = false
   transit_gateway_default_route_table_propagation = false
 
@@ -33,9 +34,10 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "tgw-att-vpc-1" {
 }
 
 resource "aws_ec2_transit_gateway_vpc_attachment" "tgw-att-vpc-2" {
-  subnet_ids                                      = ["${aws_subnet.vpc-2-sub-a.id}", "${aws_subnet.vpc-2-sub-b.id}"]
-  transit_gateway_id                              = "${aws_ec2_transit_gateway.test-tgw.id}"
-  vpc_id                                          = "${aws_vpc.vpc-2.id}"
+  vpc_id             = "${aws_vpc.vpc-2.id}"
+  subnet_ids         = ["${aws_subnet.vpc-2-sub-a.id}", "${aws_subnet.vpc-2-sub-b.id}"]
+  transit_gateway_id = "${aws_ec2_transit_gateway.test-tgw.id}"
+
   transit_gateway_default_route_table_association = false
   transit_gateway_default_route_table_propagation = false
 
@@ -48,9 +50,10 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "tgw-att-vpc-2" {
 }
 
 resource "aws_ec2_transit_gateway_vpc_attachment" "tgw-att-vpc-3" {
-  subnet_ids                                      = ["${aws_subnet.vpc-3-sub-a.id}", "${aws_subnet.vpc-3-sub-b.id}"]
-  transit_gateway_id                              = "${aws_ec2_transit_gateway.test-tgw.id}"
-  vpc_id                                          = "${aws_vpc.vpc-3.id}"
+  vpc_id             = "${aws_vpc.vpc-3.id}"
+  subnet_ids         = ["${aws_subnet.vpc-3-sub-a.id}", "${aws_subnet.vpc-3-sub-b.id}"]
+  transit_gateway_id = "${aws_ec2_transit_gateway.test-tgw.id}"
+
   transit_gateway_default_route_table_association = false
   transit_gateway_default_route_table_propagation = false
 
@@ -63,9 +66,10 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "tgw-att-vpc-3" {
 }
 
 resource "aws_ec2_transit_gateway_vpc_attachment" "tgw-att-vpc-4" {
-  subnet_ids                                      = ["${aws_subnet.vpc-4-sub-a.id}", "${aws_subnet.vpc-4-sub-b.id}"]
-  transit_gateway_id                              = "${aws_ec2_transit_gateway.test-tgw.id}"
-  vpc_id                                          = "${aws_vpc.vpc-4.id}"
+  vpc_id             = "${aws_vpc.vpc-4.id}"
+  subnet_ids         = ["${aws_subnet.vpc-4-sub-a.id}", "${aws_subnet.vpc-4-sub-b.id}"]
+  transit_gateway_id = "${aws_ec2_transit_gateway.test-tgw.id}"
+
   transit_gateway_default_route_table_association = false
   transit_gateway_default_route_table_propagation = false
 
